@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    try {
+        int choice;
+        cout << "Select exception to throw:\n";
+        cout << "1. Integer\n2. Double\n3. String\nEnter choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                throw 100;          
+            case 2:
+                throw 3.14;        
+            case 3:
+                throw "Error!";   
+            default:
+                cout << "No exception thrown." << endl;
+                return 0;
+        }
+    }
+    catch (int e) {
+        cout << "Caught an integer exception: " << e << endl;
+    }
+    catch (double e) {
+        cout << "Caught a double exception: " << e << endl;
+    }
+    catch (const char* e) {
+        cout << "Caught a string exception: " << e << endl;
+    }
+
+    cout << "Program continues after exception handling." << endl;
+
+    return 0;
+}
