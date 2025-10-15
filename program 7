@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    int id;
+    string name;
+
+public:
+    // Function to set student details using 'this' pointer
+    void setDetails(int id, string name) {
+        this->id = id;           // 'this' points to the current object
+        this->name = name;
+    }
+
+    // Function to display details
+    void display() {
+        cout << "\n--- Student Details ---\n";
+        cout << "ID: " << this->id << endl;       // using this pointer explicitly
+        cout << "Name: " << this->name << endl;
+    }
+};
+
+int main() {
+    Student s1, s2;
+
+    s1.setDetails(101, "Ganga");
+    s2.setDetails(102, "Bhavani");
+
+    s1.display();
+    s2.display();
+
+    return 0;
+}
