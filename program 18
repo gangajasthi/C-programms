@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+
+public:
+    // Function to set data
+    void setData(string n, int a) {
+        name = n;
+        age = a;
+    }
+
+    // Function to display data
+    void display() {
+        cout << "Name: " << name << ", Age: " << age << endl;
+    }
+};
+
+int main() {
+    // Create an object of Student
+    Student s1;
+
+    // Create a pointer to Student
+    Student *ptr;
+
+    // Assign the address of object s1 to pointer
+    ptr = &s1;
+
+    // Access members using pointer and arrow operator ->
+    ptr->setData("Ganga Bhavani", 20);
+    ptr->display();
+
+    // Create dynamic object using new keyword
+    Student *ptr2 = new Student;
+    ptr2->setData("Rajesh", 22);
+    ptr2->display();
+
+    // Free dynamically allocated memory
+    delete ptr2;
+
+    return 0;
+}
