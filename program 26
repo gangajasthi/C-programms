@@ -1,0 +1,70 @@
+#include <iostream>
+#include <vector>
+#include <list>
+using namespace std;
+
+int main() {
+    cout << "=== Vector Operations ===" << endl;
+    
+    vector<int> vec;
+
+    // Insertion
+    vec.push_back(10);
+    vec.push_back(20);
+    vec.push_back(30);
+
+    cout << "Vector after insertion: ";
+    for (int val : vec) {
+        cout << val << " ";
+    }
+    cout << endl;
+
+    // Deletion (remove last element)
+    vec.pop_back();
+    cout << "Vector after deletion of last element: ";
+    for (int val : vec) {
+        cout << val << " ";
+    }
+    cout << endl;
+
+    // Traversal
+    cout << "Traversing vector using iterator: ";
+    for (vector<int>::iterator it = vec.begin(); it != vec.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << "\n\n";
+    cout << "=== List Operations ===" << endl;
+    
+    list<int> lst;
+
+    // Insertion
+    lst.push_back(100);
+    lst.push_back(200);
+    lst.push_back(300);
+    lst.push_front(50);  
+
+    cout << "List after insertion: ";
+    for (int val : lst) {
+        cout << val << " ";
+    }
+    cout << endl;
+
+    // Deletion
+    lst.pop_back();       
+    lst.pop_front();     
+
+    cout << "List after deletion of first and last elements: ";
+    for (int val : lst) {
+        cout << val << " ";
+    }
+    cout << endl;
+
+    // Traversal using iterator
+    cout << "Traversing list using iterator: ";
+    for (list<int>::iterator it = lst.begin(); it != lst.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
