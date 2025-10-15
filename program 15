@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+class Number {
+private:
+    int a, b;
+
+public:
+    // Constructor
+    Number(int x = 0, int y = 0) : a(x), b(y) {}
+
+    // Display function
+    void display() {
+        cout << "a = " << a << ", b = " << b << endl;
+    }
+
+    // Friend function to overload binary operator +
+    friend Number operator+(Number n1, Number n2);
+
+    // Friend function to overload unary operator -
+    friend Number operator-(Number n);
+};
+
+// Binary operator overloading using friend function
+Number operator+(Number n1, Number n2) {
+    Number temp;
+    temp.a = n1.a + n2.a;
+    temp.b = n1.b + n2.b;
+    return temp;
+}
+
+// Unary operator overloading using friend function
+Number operator-(Number n) {
+    Number temp;
+    temp.a = -n.a;
+    temp.b = -n.b;
+    return temp;
+}
+
+int main() {
+    Number n1(5, 10), n2(2, 4), result;
+
+    cout << "First Object: ";
+    n1.display();
+
+    cout << "Second Object: ";
+    n2.display();
+
+    // Binary operator (+)
+    result = n1 + n2;
+    cout << "\nResult after Binary Operator (+): ";
+    result.display();
+
+    // Unary operator (-)
+    result = -n1;
+    cout << "Result after Unary Operator (-): ";
+    result.display();
+
+    return 0;
+}
