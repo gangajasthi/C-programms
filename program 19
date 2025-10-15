@@ -1,0 +1,124 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Person {
+public:
+    string name;
+    void setName(string n) {
+        name = n;
+    }
+    void displayName() {
+        cout << "Name: " << name << endl;
+    }
+};
+
+// Derived class 1 (virtual inheritance)
+class Student : virtual public Person {
+public:
+    int studentID;
+    void setStudentID(int id) {
+        studentID = id;
+    }
+    void displayStudent() {
+        cout << "Student ID: " << studentID << endl;
+    }
+};
+
+// Derived class 2 (virtual inheritance)
+class Employee : virtual public Person {
+public:
+    int employeeID;
+    void setEmployeeID(int id) {
+        employeeID = id;
+    }
+    void displayEmployee() {
+        cout << "Employee ID: " << employeeID << endl;
+    }
+};
+
+// Derived class from both Student and Employee
+class WorkingStudent : public Student, public Employee {
+public:
+    void displayWorkingStudent() {
+        displayName();          // No ambiguity due to virtual inheritance
+        displayStudent();
+        displayEmployee();
+    }
+};
+
+int main() {
+    WorkingStudent ws;
+
+    // Set data
+    ws.setName("Ganga Bhavani");  // Only one copy of Person exists
+    ws.setStudentID(101);
+    ws.setEmployeeID(5001);
+
+    // Display data
+    ws.displayWorkingStudent();
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+// Base class
+class Person {
+public:
+    string name;
+    void setName(string n) {
+        name = n;
+    }
+    void displayName() {
+        cout << "Name: " << name << endl;
+    }
+};
+
+// Derived class 1 (virtual inheritance)
+class Student : virtual public Person {
+public:
+    int studentID;
+    void setStudentID(int id) {
+        studentID = id;
+    }
+    void displayStudent() {
+        cout << "Student ID: " << studentID << endl;
+    }
+};
+
+// Derived class 2 (virtual inheritance)
+class Employee : virtual public Person {
+public:
+    int employeeID;
+    void setEmployeeID(int id) {
+        employeeID = id;
+    }
+    void displayEmployee() {
+        cout << "Employee ID: " << employeeID << endl;
+    }
+};
+
+// Derived class from both Student and Employee
+class WorkingStudent : public Student, public Employee {
+public:
+    void displayWorkingStudent() {
+        displayName();          // No ambiguity due to virtual inheritance
+        displayStudent();
+        displayEmployee();
+    }
+};
+
+int main() {
+    WorkingStudent ws;
+
+    // Set data
+    ws.setName("Ganga Bhavani");  // Only one copy of Person exists
+    ws.setStudentID(101);
+    ws.setEmployeeID(5001);
+
+    // Display data
+    ws.displayWorkingStudent();
+
+    return 0;
+}
