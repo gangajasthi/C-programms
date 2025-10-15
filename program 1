@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+int factorial(int n)
+{
+	if(n==0||n==1)
+	return 1;
+	else
+	return n*factorial(n-1);
+}
+int main()
+{
+	int res;
+	int num;
+	cout<<"enter the value of num:";
+	cin>>num;
+	if(num<0)
+	cout<<"Negative number";
+	else
+	res=factorial(num);
+	cout<<res;
+	return res;
+	
+}
