@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+class Animal {
+public:
+    // Virtual function for runtime polymorphism
+    virtual void sound() {
+        cout << "Some generic animal sound" << endl;
+    }
+};
+class Dog : public Animal {
+public:
+    void sound() override {  // Override base class function
+        cout << "Dog barks: Woof! Woof!" << endl;
+    }
+};
+class Cat : public Animal {
+public:
+    void sound() override {  // Override base class function
+        cout << "Cat meows: Meow! Meow!" << endl;
+    }
+};
+
+int main() {
+    Animal *animalPtr;  
+
+    Dog d;
+    Cat c;
+
+    // Point to Dog object
+    animalPtr = &d;
+    animalPtr->sound();  
+    // Point to Cat object
+    animalPtr = &c;
+    animalPtr->sound();  
+    return 0;
+}
