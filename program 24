@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int dividend, divisor;
+    double result;
+
+    cout << "Enter dividend: ";
+    cin >> dividend;
+    cout << "Enter divisor: ";
+    cin >> divisor;
+
+    try {
+        // Check for division by zero
+        if (divisor == 0) {
+            throw divisor; 
+        }
+
+        // Perform division if no exception
+        result = static_cast<double>(dividend) / divisor;
+        cout << "Result: " << result << endl;
+    }
+    catch (int e) {
+        // Catch block handles the exception
+        cout << "Error: Division by zero is not allowed. Divisor = " << e << endl;
+    }
+
+    cout << "Program continues after exception handling." << endl;
+
+    return 0;
+}
