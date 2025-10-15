@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+// Class template
+template <typename T>
+class Box {
+private:
+    T length;
+    T width;
+
+public:
+    // Constructor
+    Box(T l, T w) : length(l), width(w) {}
+
+    // Function to calculate area
+    T area() {
+        return length * width;
+    }
+
+    // Function to display dimensions
+    void display() {
+        cout << "Length: " << length << ", Width: " << width << endl;
+    }
+};
+
+int main() {
+    // Box with int type
+    Box<int> intBox(5, 10);
+    cout << "Integer Box:" << endl;
+    intBox.display();
+    cout << "Area: " << intBox.area() << endl << endl;
+
+    // Box with double type
+    Box<double> doubleBox(3.5, 2.8);
+    cout << "Double Box:" << endl;
+    doubleBox.display();
+    cout << "Area: " << doubleBox.area() << endl << endl;
+
+    // Box with float type
+    Box<float> floatBox(2.3f, 4.1f);
+    cout << "Float Box:" << endl;
+    floatBox.display();
+    cout << "Area: " << floatBox.area() << endl;
+
+    return 0;
+}
