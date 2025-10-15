@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+class tatarao{
+	public:
+		tatarao(){
+			cout<<"The grandfather tatarao!"<<endl;
+		}
+};
+class bajji{
+	public:
+		bajji(){
+			cout<<"The father bajji!"<<endl;
+		}
+};
+class ganga{
+	public:
+		ganga(){
+			cout<<"This is me!"<<endl;
+		}
+};
+class ram:public tatarao,public bajji,public ganga{
+	public:
+		ram(){
+			cout<<"He is future fellow!"<<endl;
+		}
+};
+int main()
+{
+	ram obj;
+	return 0;
+}
