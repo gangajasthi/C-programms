@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+class Complex {
+private:
+    float real;
+    float imag;
+
+public:
+    // Constructor
+    Complex(float r = 0, float i = 0) {
+        real = r;
+        imag = i;
+    }
+
+    // Function to display complex number
+    void display() {
+        cout << real << " + " << imag << "i" << endl;
+    }
+
+    // Overloading binary operator '+'
+    Complex operator+(Complex c) {
+        Complex temp;
+        temp.real = real + c.real;
+        temp.imag = imag + c.imag;
+        return temp;
+    }
+
+    // Overloading unary operator '-'
+    Complex operator-() {
+        Complex temp;
+        temp.real = -real;
+        temp.imag = -imag;
+        return temp;
+    }
+};
+
+int main() {
+    Complex c1(3, 4), c2(2, 5), c3, c4;
+
+    cout << "First Complex Number: ";
+    c1.display();
+
+    cout << "Second Complex Number: ";
+    c2.display();
+
+    // Binary operator overloading (+)
+    c3 = c1 + c2;
+    cout << "\nAfter Addition (c1 + c2): ";
+    c3.display();
+
+    // Unary operator overloading (-)
+    c4 = -c1;
+    cout << "After Negation (-c1): ";
+    c4.display();
+
+    return 0;
+}
